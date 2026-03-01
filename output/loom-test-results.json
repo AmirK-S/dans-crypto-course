@@ -1,0 +1,68 @@
+{
+  "testedAt": "2026-03-01T14:06:09.020Z",
+  "totalTested": 5,
+  "successful": 5,
+  "failed": 0,
+  "results": [
+    {
+      "videoId": "5ced6933a4934f5bb6e0bdd3a6fc63e6",
+      "title": "Introduction",
+      "section": "Introduction to the Course",
+      "status": "success",
+      "transcriptionStatus": "success",
+      "transcriptLength": 15767,
+      "transcriptWordCount": 3031,
+      "transcriptPreview": "welcome everyone to the bullrun millions course I'm very happy to have you all on board and I wanted to film a little introduction video just to give you an overview of everything and yeah before I st",
+      "error": null,
+      "responseTimeMs": 2062
+    },
+    {
+      "videoId": "183dcce19016485596a81932485930cd",
+      "title": "All humans have the same flaws",
+      "section": "Market Psychology",
+      "status": "success",
+      "transcriptionStatus": "success",
+      "transcriptLength": 27899,
+      "transcriptWordCount": 5148,
+      "transcriptPreview": "Alright, we're on to a new topic now and this topic is on the concept of a market cycle. Now market cycles is a non-negotiable topic of understanding for you to be a profitable investor. It is also a ",
+      "error": null,
+      "responseTimeMs": 608
+    },
+    {
+      "videoId": "9e9c7c66fa984d0bb1699e882cc4aa89",
+      "title": "Chasing pumps",
+      "section": "Do-NOT-Do-List",
+      "status": "success",
+      "transcriptionStatus": "success",
+      "transcriptLength": 16042,
+      "transcriptWordCount": 2955,
+      "transcriptPreview": "Alright. Another thing that you guys shouldn't be doing is chasing pumps. This one's an obvious one, but there is a really nuanced situation that I do want to go over and explain because sometimes cha",
+      "error": null,
+      "responseTimeMs": 598
+    },
+    {
+      "videoId": "deb5536034b14557a9679ace1620b025",
+      "title": "The Role of Chart Analysis",
+      "section": "Technical Analysis",
+      "status": "success",
+      "transcriptionStatus": "success",
+      "transcriptLength": 23585,
+      "transcriptWordCount": 4444,
+      "transcriptPreview": "Alright, so I've decided to add into this course a section on chart analysis and before we get into a video going through every one of my tools that I use on the chart, I want to do this video just ta",
+      "error": null,
+      "responseTimeMs": 593
+    },
+    {
+      "videoId": "b09b1fc9ab8d40528d2535961970a01a",
+      "title": "High Yield Farms",
+      "section": "Scams to Avoid",
+      "status": "success",
+      "transcriptionStatus": "success",
+      "transcriptLength": 10658,
+      "transcriptWordCount": 2002,
+      "transcriptPreview": "Alright, so let's talk about the second scammy thing that exists in crypto and it evolves around high yield farming opportunities. So in crypto, there is three main ways that you can yield farm. Well,",
+      "error": null,
+      "responseTimeMs": 543
+    }
+  ]
+}

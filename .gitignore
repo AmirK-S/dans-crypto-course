@@ -1,0 +1,7 @@
+node_modules/
+.env
+.DS_Store
+output/.DS_Store
+output/transcripts/.DS_Store
+BatteryOptimizer_for_Mac-main/
+batteryoptimizer.zip

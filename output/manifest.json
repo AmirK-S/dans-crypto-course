@@ -1,0 +1,750 @@
+{
+  "extractedAt": "2026-03-01T14:02:54.456Z",
+  "enrichedAt": "2026-03-01T14:02:54.456Z",
+  "courseUrl": "https://www.skool.com/bullrun-millions-crypto-course-9312/classroom/9654a827",
+  "totalVideos": 95,
+  "sections": [
+    {
+      "name": "Introduction to the Course",
+      "order": 1,
+      "videos": [
+        {
+          "title": "Introduction",
+          "loomId": "5ced6933a4934f5bb6e0bdd3a6fc63e6",
+          "loomEmbedUrl": "https://www.loom.com/embed/5ced6933a4934f5bb6e0bdd3a6fc63e6",
+          "order": 1,
+          "mdId": "4196a2bddcc04e2fba55486e9828dd60"
+        }
+      ]
+    },
+    {
+      "name": "The Basics",
+      "order": 2,
+      "videos": [
+        {
+          "title": "Start Here - How to learn Crypto as a beginner",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 1,
+          "mdId": "9c677881c25e412baab273dc3a2bd5fd"
+        },
+        {
+          "title": "Complete Beginners Video Guide",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 2,
+          "mdId": "8133e9b43125469a804f2b67194de871"
+        },
+        {
+          "title": "How does Bitcoin work?",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 3,
+          "mdId": "b749eb3d10a14809ab2ccd0b6371b585"
+        },
+        {
+          "title": "More Coming Soon",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 4,
+          "mdId": "3b6ba824320b4b48949719e597627090"
+        }
+      ]
+    },
+    {
+      "name": "Mindset",
+      "order": 3,
+      "videos": [
+        {
+          "title": "Lipstick on a Pig",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 1,
+          "mdId": "1490ef6b0bf3490c9615664ff0413a21"
+        },
+        {
+          "title": "Crypto is a Pump and Dump Ponzi Scheme",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 2,
+          "mdId": "a30bf83368294380831c4d38938e220f"
+        },
+        {
+          "title": "Markets are Zero Sum",
+          "loomId": "13f9e28d4c434a878b8416bd8c364af3",
+          "loomEmbedUrl": "https://www.loom.com/embed/13f9e28d4c434a878b8416bd8c364af3",
+          "order": 3,
+          "mdId": "7950b542ca1e45dc8a3ddbaee9ce210b"
+        },
+        {
+          "title": "The House Always Wins",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 4,
+          "mdId": "7b1e85588a23428da514ce4a90155d66"
+        },
+        {
+          "title": "How to 80/20 Crypto",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 5,
+          "mdId": "03701f508f48493f91bd2e62cda10a6a"
+        },
+        {
+          "title": "Emotions Destroy Profits",
+          "loomId": "e91120a90a27495889435f5e92bbcb0e",
+          "loomEmbedUrl": "https://www.loom.com/embed/e91120a90a27495889435f5e92bbcb0e",
+          "order": 6,
+          "mdId": "1955de258e2c4d7fb35e3e9066a8e280"
+        },
+        {
+          "title": "Pattern Recognition Database",
+          "loomId": "7667dd51b81549f58118b8a2c21c596c",
+          "loomEmbedUrl": "https://www.loom.com/embed/7667dd51b81549f58118b8a2c21c596c",
+          "order": 7,
+          "mdId": "40f9dd25aae84a64a55d4e05f3d6dae7"
+        },
+        {
+          "title": "Are you an Amateur or Professional?",
+          "loomId": "4cd132e3a33748e8bd8db9127ca21eb5",
+          "loomEmbedUrl": "https://www.loom.com/embed/4cd132e3a33748e8bd8db9127ca21eb5",
+          "order": 8,
+          "mdId": "f0081f11f3244529bb9e0652720b7bef"
+        },
+        {
+          "title": "Add to winners, cut losers",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 9,
+          "mdId": "c23010106d564b9fb033cff63500e692"
+        },
+        {
+          "title": "The importance of volatility",
+          "loomId": "5fc9d9c91ea34996b60a1cd6ab2c589b",
+          "loomEmbedUrl": "https://www.loom.com/embed/5fc9d9c91ea34996b60a1cd6ab2c589b",
+          "order": 10,
+          "mdId": "45b31a7fdbe2463fb7d0241c85b68ad9"
+        },
+        {
+          "title": "Second and Third Order Consequences",
+          "loomId": "d4c9b9e135c2436c8899376cdc989b78",
+          "loomEmbedUrl": "https://www.loom.com/embed/d4c9b9e135c2436c8899376cdc989b78",
+          "order": 11,
+          "mdId": "dad64a9fad4c4ecd91dfdf88acb9cc9f"
+        },
+        {
+          "title": "Capturing 6/8ths of the trend",
+          "loomId": "1b0091198bcf42f3b4133a9acd02dbf3",
+          "loomEmbedUrl": "https://www.loom.com/embed/1b0091198bcf42f3b4133a9acd02dbf3",
+          "order": 12,
+          "mdId": "bc7c870f0cc94c4285b7c786825463d1"
+        },
+        {
+          "title": "Preparedness, not Predictions",
+          "loomId": "b13326a2c0844ec0bf394402f2370f4b",
+          "loomEmbedUrl": "https://www.loom.com/embed/b13326a2c0844ec0bf394402f2370f4b",
+          "order": 13,
+          "mdId": "39f337ae8e1e4a86b7771bffaf13ec29"
+        },
+        {
+          "title": "Dunning Kruger Effect",
+          "loomId": "32fe698287104d24b35a0c4dbe85a882",
+          "loomEmbedUrl": "https://www.loom.com/embed/32fe698287104d24b35a0c4dbe85a882",
+          "order": 14,
+          "mdId": "c2bc43d3b126455099508d3998e97db4"
+        },
+        {
+          "title": "How to capture outsized returns",
+          "loomId": "6751a61e2cef43e09437968187a4d3a5",
+          "loomEmbedUrl": "https://www.loom.com/embed/6751a61e2cef43e09437968187a4d3a5",
+          "order": 15,
+          "mdId": "14d466b7df664253aefa8b0c7f616a29"
+        },
+        {
+          "title": "IQ Meme In Practice",
+          "loomId": "b988d8e14b224e1d8efab46e6ecfda74",
+          "loomEmbedUrl": "https://www.loom.com/embed/b988d8e14b224e1d8efab46e6ecfda74",
+          "order": 16,
+          "mdId": "6e821be8ebe54b05a46c267e6b243f51"
+        },
+        {
+          "title": "Opportunity cost vs probability of success",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 17,
+          "mdId": "fd98f37ac7eb45a5a61956e19ff1a809"
+        },
+        {
+          "title": "Internal —> External Thinking",
+          "loomId": "39cf116b94f749d68d8ee3f99c06d69e",
+          "loomEmbedUrl": "https://www.loom.com/embed/39cf116b94f749d68d8ee3f99c06d69e",
+          "order": 18,
+          "mdId": "9927b0846df443a2b5e6c614fbeee080"
+        },
+        {
+          "title": "Yield vs Delta",
+          "loomId": "6b8280adcf2b4e03b13094168615b94e",
+          "loomEmbedUrl": "https://www.loom.com/embed/6b8280adcf2b4e03b13094168615b94e",
+          "order": 19,
+          "mdId": "83b0f92cabaf4947ad27d1542496ecd2"
+        },
+        {
+          "title": "It’s not about the coin, it’s about the process",
+          "loomId": "6e48c54852a946bea70dbe0ed907e801",
+          "loomEmbedUrl": "https://www.loom.com/embed/6e48c54852a946bea70dbe0ed907e801",
+          "order": 20,
+          "mdId": "0deef3892efc4976ba9d4b0f3abe576f"
+        },
+        {
+          "title": "Everyone pays their tuition",
+          "loomId": "b36975f9467245a5b1d613616ff52d4e",
+          "loomEmbedUrl": "https://www.loom.com/embed/b36975f9467245a5b1d613616ff52d4e",
+          "order": 21,
+          "mdId": "d52d2bc5975c400687906415478e1f8d"
+        },
+        {
+          "title": "Short Term vs Long Term Solutions",
+          "loomId": "ab89ff3b90bb4d29a411cc555e82f058",
+          "loomEmbedUrl": "https://www.loom.com/embed/ab89ff3b90bb4d29a411cc555e82f058",
+          "order": 22,
+          "mdId": "086cc1d29184405f81873571be619c01"
+        }
+      ]
+    },
+    {
+      "name": "Market Psychology",
+      "order": 4,
+      "videos": [
+        {
+          "title": "All humans have the same flaws",
+          "loomId": "183dcce19016485596a81932485930cd",
+          "loomEmbedUrl": "https://www.loom.com/embed/183dcce19016485596a81932485930cd",
+          "order": 1,
+          "mdId": "2c69d820cebf436aab2f6df100ef8af8"
+        },
+        {
+          "title": "Fear and Greed - Market Cycles",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 2,
+          "mdId": "8828e38437db4c9895b6fadca7ff21f1"
+        },
+        {
+          "title": "Ignore Regret",
+          "loomId": "97531dc99d9b4e3aabe7715f1b6e0a80",
+          "loomEmbedUrl": "https://www.loom.com/embed/97531dc99d9b4e3aabe7715f1b6e0a80",
+          "order": 3,
+          "mdId": "e6c23ba5ce054fe7a503708a5848ebde"
+        },
+        {
+          "title": "How Markets Price Value",
+          "loomId": "d3bcec40b8a84bb29dd15882276e1db4",
+          "loomEmbedUrl": "https://www.loom.com/embed/d3bcec40b8a84bb29dd15882276e1db4",
+          "order": 4,
+          "mdId": "03983f2a604e4508a9c029b2ee5c9e49"
+        },
+        {
+          "title": "Pain of profit or pain of losing?",
+          "loomId": "4dfec1dcb97148319b8b0174b851ef22",
+          "loomEmbedUrl": "https://www.loom.com/embed/4dfec1dcb97148319b8b0174b851ef22",
+          "order": 5,
+          "mdId": "2fcfc7a29ef2428e8f51c447739ae67e"
+        }
+      ]
+    },
+    {
+      "name": "Understanding Crypto Cycles + Price Action",
+      "order": 5,
+      "videos": [
+        {
+          "title": "Types of Capitulation",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 1,
+          "mdId": "da78b2278a394759896a0115308c9af0"
+        },
+        {
+          "title": "4 Year Cycle",
+          "loomId": "b702be085b6b43a48e670ba0b5dd31b8",
+          "loomEmbedUrl": "https://www.loom.com/embed/b702be085b6b43a48e670ba0b5dd31b8",
+          "order": 2,
+          "mdId": "d82be0cd260e49dfafce465265b3a4c6"
+        },
+        {
+          "title": "Diversification is a Myth",
+          "loomId": "5265de737c6843748b90f0763996e3df",
+          "loomEmbedUrl": "https://www.loom.com/embed/5265de737c6843748b90f0763996e3df",
+          "order": 3,
+          "mdId": "b637af5a0ee842ce9dd28251bf38317c"
+        },
+        {
+          "title": "New Coins vs Old Coins",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 4,
+          "mdId": "db80e50ee1b74f3184e07432ed9ff700"
+        },
+        {
+          "title": "The Big Long’/Position Sizing during Bull",
+          "loomId": "e8d61c21e25b464d9fe72673c5067038",
+          "loomEmbedUrl": "https://www.loom.com/embed/e8d61c21e25b464d9fe72673c5067038",
+          "order": 5,
+          "mdId": "36452266ccad492cb393f5a2694893e6"
+        },
+        {
+          "title": "Leverage Trading - Yes or No?",
+          "loomId": "337f13be5ae14724856cdb9855b48dc5",
+          "loomEmbedUrl": "https://www.loom.com/embed/337f13be5ae14724856cdb9855b48dc5",
+          "order": 6,
+          "mdId": "0cbba22537554634a0bbfc64a07d2e12"
+        },
+        {
+          "title": "Capturing Assymetric Opportunities",
+          "loomId": "c1baaa46f2344cb7bb9875b279dfbb17",
+          "loomEmbedUrl": "https://www.loom.com/embed/c1baaa46f2344cb7bb9875b279dfbb17",
+          "order": 7,
+          "mdId": "e23769af5cc6418dbb1d4d6ffd0d2b48"
+        },
+        {
+          "title": "Home Runs > Small Wins",
+          "loomId": "d55ea765774c4b4aa2b984b85bceb637",
+          "loomEmbedUrl": "https://www.loom.com/embed/d55ea765774c4b4aa2b984b85bceb637",
+          "order": 8,
+          "mdId": "119484030f624a068cd08e084c35770d"
+        },
+        {
+          "title": "Influencers Create Liquidity, Not Alpha",
+          "loomId": "45f168c9092f4b78b69bc5c82fe3cbdf",
+          "loomEmbedUrl": "https://www.loom.com/embed/45f168c9092f4b78b69bc5c82fe3cbdf",
+          "order": 9,
+          "mdId": "8a73aa3ac7004fdd970a56e3044bed0a"
+        },
+        {
+          "title": "Reflexivity, Funding Data",
+          "loomId": "fcabeb1e64aa4be3b9081a37fa33afc7",
+          "loomEmbedUrl": "https://www.loom.com/embed/fcabeb1e64aa4be3b9081a37fa33afc7",
+          "order": 10,
+          "mdId": "97b36c71f16f4a4eb58a8e07c87816b9"
+        },
+        {
+          "title": "Sector Rotations",
+          "loomId": "a63e9d065dec4edc96b5bf917530d916",
+          "loomEmbedUrl": "https://www.loom.com/embed/a63e9d065dec4edc96b5bf917530d916",
+          "order": 11,
+          "mdId": "295b13662f6146a1b6c8d88730eb4827"
+        },
+        {
+          "title": "Macro",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 12,
+          "mdId": "dc6df77e139541d5836fb99a81503605"
+        },
+        {
+          "title": "House Money Effect",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 13,
+          "mdId": "b7a11aaea9b043dea8bb05ba15a9bf9a"
+        }
+      ]
+    },
+    {
+      "name": "Do-NOT-Do-List",
+      "order": 6,
+      "videos": [
+        {
+          "title": "Chasing pumps",
+          "loomId": "9e9c7c66fa984d0bb1699e882cc4aa89",
+          "loomEmbedUrl": "https://www.loom.com/embed/9e9c7c66fa984d0bb1699e882cc4aa89",
+          "order": 1,
+          "mdId": "f5038c7964f64ef29c6d5fea19086cc7"
+        },
+        {
+          "title": "Making emotional decisions",
+          "loomId": "5e72de832fb3498697f62c220a742b8a",
+          "loomEmbedUrl": "https://www.loom.com/embed/5e72de832fb3498697f62c220a742b8a",
+          "order": 2,
+          "mdId": "0091b7ac37af439a8342e9eaf3bb09ce"
+        },
+        {
+          "title": "Copy your favourite twitter influencer",
+          "loomId": "54d2f81553cd410ab09a918fe9cff00a",
+          "loomEmbedUrl": "https://www.loom.com/embed/54d2f81553cd410ab09a918fe9cff00a",
+          "order": 3,
+          "mdId": "a4fa874d60c6419b93e31870865ef4ec"
+        },
+        {
+          "title": "Gain conviction with higher prices",
+          "loomId": "472c1d6853b645c08411ef54df6a4e8c",
+          "loomEmbedUrl": "https://www.loom.com/embed/472c1d6853b645c08411ef54df6a4e8c",
+          "order": 4,
+          "mdId": "6f46333da1494ed3b8e791324220e251"
+        },
+        {
+          "title": "Buy or sell without an edge",
+          "loomId": "501889370f0c4dcca6a8a3ecdcf3e0c1",
+          "loomEmbedUrl": "https://www.loom.com/embed/501889370f0c4dcca6a8a3ecdcf3e0c1",
+          "order": 5,
+          "mdId": "ee814335171a422797a54022bb23ced6"
+        },
+        {
+          "title": "Selling to buy back lower",
+          "loomId": "6c3c770bf0ed42fd864d7eee87e93e20",
+          "loomEmbedUrl": "https://www.loom.com/embed/6c3c770bf0ed42fd864d7eee87e93e20",
+          "order": 6,
+          "mdId": "fd08eabe6a9242e08236119abda6177d"
+        },
+        {
+          "title": "Don’t mix strategies",
+          "loomId": "a9b7500b390c4ee289ecfaa366e3957a",
+          "loomEmbedUrl": "https://www.loom.com/embed/a9b7500b390c4ee289ecfaa366e3957a",
+          "order": 7,
+          "mdId": "8572a126547544eb8b9546497dfa80ae"
+        },
+        {
+          "title": "Sell 50% on a 2x",
+          "loomId": "d73f1c6530ca4ee0ac5fc9a5771aa8fb",
+          "loomEmbedUrl": "https://www.loom.com/embed/d73f1c6530ca4ee0ac5fc9a5771aa8fb",
+          "order": 8,
+          "mdId": "a23c1d814829404c932fe55b6ed63dff"
+        }
+      ]
+    },
+    {
+      "name": "Fundamental Analysis",
+      "order": 7,
+      "videos": [
+        {
+          "title": "Levels to Fundamental Analysis",
+          "loomId": "a491f1a1fb4648f2ad6c7e9cc36e49ce",
+          "loomEmbedUrl": "https://www.loom.com/embed/a491f1a1fb4648f2ad6c7e9cc36e49ce",
+          "order": 1,
+          "mdId": "4bfa76c324a041f5bc424041b4f1b78a"
+        },
+        {
+          "title": "Fundamentals - Flows",
+          "loomId": "055ce9778edb4d55bc1166685024dbeb",
+          "loomEmbedUrl": "https://www.loom.com/embed/055ce9778edb4d55bc1166685024dbeb",
+          "order": 2,
+          "mdId": "6789e712972d4249abf8ed8830b6d27e"
+        },
+        {
+          "title": "Fundamentals - Tokenomics",
+          "loomId": "32cfefdec0a54b28a40525260752dbf3",
+          "loomEmbedUrl": "https://www.loom.com/embed/32cfefdec0a54b28a40525260752dbf3",
+          "order": 3,
+          "mdId": "93a4688b32dc4be388803eed27faa096"
+        },
+        {
+          "title": "Fundamentals - Advanced Narrative Analysis",
+          "loomId": "3de5dee853074809982f0cc0676116dd",
+          "loomEmbedUrl": "https://www.loom.com/embed/3de5dee853074809982f0cc0676116dd",
+          "order": 4,
+          "mdId": "9a04eb0cce3449b2abe7486a57a7d5af"
+        },
+        {
+          "title": "Fundamentals - Thesis Building with Network",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 5,
+          "mdId": "63add994877640b9914538f9ff3d62d4"
+        },
+        {
+          "title": "Fundamentals - Pattern recognition",
+          "loomId": "fc69d31b4b6347c5a2503f53ffaa44e8",
+          "loomEmbedUrl": "https://www.loom.com/embed/fc69d31b4b6347c5a2503f53ffaa44e8",
+          "order": 6,
+          "mdId": "a0467140702349219bd54ed18c3e5e3f"
+        },
+        {
+          "title": "Fundamentals - Second and Third Order Consequences",
+          "loomId": "f0b6e654c3d240f2be4549a5600e160b",
+          "loomEmbedUrl": "https://www.loom.com/embed/f0b6e654c3d240f2be4549a5600e160b",
+          "order": 7,
+          "mdId": "438943a5b1e9481782c4a09ce9c5a5e5"
+        },
+        {
+          "title": "Fundamentals - Team",
+          "loomId": "6e2f8d41fc4541989e583a26228396af",
+          "loomEmbedUrl": "https://www.loom.com/embed/6e2f8d41fc4541989e583a26228396af",
+          "order": 8,
+          "mdId": "8320309ababa498eafd62d80c1361b85"
+        },
+        {
+          "title": "Fundamentals - Community",
+          "loomId": "25dceeb3c9be4af0a9286a4b63412e72",
+          "loomEmbedUrl": "https://www.loom.com/embed/25dceeb3c9be4af0a9286a4b63412e72",
+          "order": 9,
+          "mdId": "791a16c6d1164a34bd7e5a8bfc8ab87e"
+        },
+        {
+          "title": "Fundamentals - Mindshare",
+          "loomId": "5ab84e8b0e874d69a180e27a8fa2c3cc",
+          "loomEmbedUrl": "https://www.loom.com/embed/5ab84e8b0e874d69a180e27a8fa2c3cc",
+          "order": 10,
+          "mdId": "874b3114e31b479fa93f307ddd1b00af"
+        },
+        {
+          "title": "Fundamentals - Perception vs Reality",
+          "loomId": "34fff6cbc4cf4689874db3be1ea3c725",
+          "loomEmbedUrl": "https://www.loom.com/embed/34fff6cbc4cf4689874db3be1ea3c725",
+          "order": 11,
+          "mdId": "637c7eb90f264a88a8ce8eaf066fca65"
+        },
+        {
+          "title": "Fundamentals - 0—> 1 Primitives",
+          "loomId": "0316508ccb4c46fe90816fb5d43e804f",
+          "loomEmbedUrl": "https://www.loom.com/embed/0316508ccb4c46fe90816fb5d43e804f",
+          "order": 12,
+          "mdId": "12640962faee420ca7b81b0b99feca36"
+        },
+        {
+          "title": "Fundamentals - Outlier Price Action",
+          "loomId": "5a5c298e5046441f97a475e8c4f2572e",
+          "loomEmbedUrl": "https://www.loom.com/embed/5a5c298e5046441f97a475e8c4f2572e",
+          "order": 13,
+          "mdId": "f8c054cab960410b9831b549022f9137"
+        },
+        {
+          "title": "Fundamentals - Initial Distribution",
+          "loomId": "9c272599187c4db88e15bd26d8722a52",
+          "loomEmbedUrl": "https://www.loom.com/embed/9c272599187c4db88e15bd26d8722a52",
+          "order": 14,
+          "mdId": "caeb4f6bbedc4eec84675205b1efc663"
+        },
+        {
+          "title": "Fundamentals - Age of project",
+          "loomId": "0d4f7f5bbefb4922888363cbb08e66da",
+          "loomEmbedUrl": "https://www.loom.com/embed/0d4f7f5bbefb4922888363cbb08e66da",
+          "order": 15,
+          "mdId": "e20dafe67e1a4489a9ef2e26416ad218"
+        },
+        {
+          "title": "Two Strategies to Find Coins Before They 10-100x",
+          "loomId": "8acd0ec1d7f34bb980a2ab23f1be5666",
+          "loomEmbedUrl": "https://www.loom.com/embed/8acd0ec1d7f34bb980a2ab23f1be5666",
+          "order": 16,
+          "mdId": "3ea255b994ab46de8e815d2f46ca6dbf"
+        },
+        {
+          "title": "How Tyler hit a 50x on $KAS In my Mastermind",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 17,
+          "mdId": "5c4e9f9eb9dd4cdaa3f859673f254b29"
+        },
+        {
+          "title": "Importance of a Thesis - Missing on $400M on SHIB",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 18,
+          "mdId": "436d12b20c64415c9cf5d24b21daa758"
+        },
+        {
+          "title": "'Fundamental 14' Checklist",
+          "loomId": "c600422c130b4c919ef74d04de0016f3",
+          "loomEmbedUrl": "https://www.loom.com/embed/c600422c130b4c919ef74d04de0016f3",
+          "order": 19,
+          "mdId": "32c61464c5dc4dd781e0962aa674b7fa"
+        }
+      ]
+    },
+    {
+      "name": "Technical Analysis",
+      "order": 8,
+      "videos": [
+        {
+          "title": "The Role of Chart Analysis",
+          "loomId": "deb5536034b14557a9679ace1620b025",
+          "loomEmbedUrl": "https://www.loom.com/embed/deb5536034b14557a9679ace1620b025",
+          "order": 1,
+          "mdId": "8728ec8b8e9247a0b5276dbd3e3bac25"
+        },
+        {
+          "title": "Support and Resistance",
+          "loomId": "18ea977f35864d1594ea0f0867e2dee5",
+          "loomEmbedUrl": "https://www.loom.com/embed/18ea977f35864d1594ea0f0867e2dee5",
+          "order": 2,
+          "mdId": "7fe6410e842b49b3ab039f4aad68b32b"
+        },
+        {
+          "title": "Volume",
+          "loomId": "bf878123563047f3a7a479d87017d951",
+          "loomEmbedUrl": "https://www.loom.com/embed/bf878123563047f3a7a479d87017d951",
+          "order": 3,
+          "mdId": "659bae5d2f6640c6a21282cc4d974093"
+        },
+        {
+          "title": "Retracements and Rallies",
+          "loomId": "87b763fb75e44b268c9bddcdb6548a98",
+          "loomEmbedUrl": "https://www.loom.com/embed/87b763fb75e44b268c9bddcdb6548a98",
+          "order": 4,
+          "mdId": "0f348fc77b2c4bb29490fc8cbc2ea926"
+        },
+        {
+          "title": "Breakouts and Retests",
+          "loomId": "271661cb466b4de486606a3c4624367a",
+          "loomEmbedUrl": "https://www.loom.com/embed/271661cb466b4de486606a3c4624367a",
+          "order": 5,
+          "mdId": "b10f061122ab4b80a2dc03cc313ad5bd"
+        },
+        {
+          "title": "Capitulation",
+          "loomId": "a1ed9b51048446a3b146848aa9a0564c",
+          "loomEmbedUrl": "https://www.loom.com/embed/a1ed9b51048446a3b146848aa9a0564c",
+          "order": 6,
+          "mdId": "00b760a6303b4d449803e5f2ae15d275"
+        }
+      ]
+    },
+    {
+      "name": "Building a Strategy/Edge",
+      "order": 9,
+      "videos": [
+        {
+          "title": "Overview of potential money making strategies",
+          "loomId": "4f274d3077a74462bfabf301b0bf9036",
+          "loomEmbedUrl": "https://www.loom.com/embed/4f274d3077a74462bfabf301b0bf9036",
+          "order": 1,
+          "mdId": "25a29cb1e96643cb9bce15674b5feac2"
+        },
+        {
+          "title": "The truth of being a profitable trader",
+          "loomId": "79bbada89a7c4e1cb7352089d9592198",
+          "loomEmbedUrl": "https://www.loom.com/embed/79bbada89a7c4e1cb7352089d9592198",
+          "order": 2,
+          "mdId": "0653a01a5ca54606bebc57c780966053"
+        },
+        {
+          "title": "Importance of a Strategy/Edge",
+          "loomId": "b485c540981346d985703e5a7ce28306",
+          "loomEmbedUrl": "https://www.loom.com/embed/b485c540981346d985703e5a7ce28306",
+          "order": 3,
+          "mdId": "72e3fa435d274c209e639ce4c4246850"
+        },
+        {
+          "title": "Follow the pro or become the pro",
+          "loomId": "d79a5a7eea5f47d588ffd4bb1be3b4b9",
+          "loomEmbedUrl": "https://www.loom.com/embed/d79a5a7eea5f47d588ffd4bb1be3b4b9",
+          "order": 4,
+          "mdId": "7fdd4ed2749742b3a28ea9c35788d2c3"
+        },
+        {
+          "title": "How did I build my strategies/edge?",
+          "loomId": "d27f2e2a11314978a7b7d20014497da4",
+          "loomEmbedUrl": "https://www.loom.com/embed/d27f2e2a11314978a7b7d20014497da4",
+          "order": 5,
+          "mdId": "7b933ddd5a5b47279516b60c00dc5f08"
+        },
+        {
+          "title": "How to make/get a strategy/edge?",
+          "loomId": "232a209f4add4234a775002a26c26ca6",
+          "loomEmbedUrl": "https://www.loom.com/embed/232a209f4add4234a775002a26c26ca6",
+          "order": 6,
+          "mdId": "d5a28d95040f41dc89dbd563d912e0c8"
+        },
+        {
+          "title": "Why 99% of algorithms are scams",
+          "loomId": "7e5f0918f4e84598b076582d25bada3e",
+          "loomEmbedUrl": "https://www.loom.com/embed/7e5f0918f4e84598b076582d25bada3e",
+          "order": 7,
+          "mdId": "9c304a1a1d734d3ca3523e7019ff4e1a"
+        },
+        {
+          "title": "Case Study: The Strategy that turned 15k -> 8 Figs",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 8,
+          "mdId": "61277b32ac8e490d9acb731e74aa8679"
+        }
+      ]
+    },
+    {
+      "name": "Scams to Avoid",
+      "order": 10,
+      "videos": [
+        {
+          "title": "DCA Trading Bots",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 1,
+          "mdId": "9ede45c31f7646bfb2b75886a57b9adc"
+        },
+        {
+          "title": "High Yield Farms",
+          "loomId": "b09b1fc9ab8d40528d2535961970a01a",
+          "loomEmbedUrl": "https://www.loom.com/embed/b09b1fc9ab8d40528d2535961970a01a",
+          "order": 2,
+          "mdId": "12ac39f4e5904b8a9da42e41f8160af3"
+        },
+        {
+          "title": "Prop Firms",
+          "loomId": "414b1f2eeaf94a35af035a09205fc446",
+          "loomEmbedUrl": "https://www.loom.com/embed/414b1f2eeaf94a35af035a09205fc446",
+          "order": 3,
+          "mdId": "2b73b7f6a2c446329e823a49c3fa785e"
+        }
+      ]
+    },
+    {
+      "name": "Taxes and Banking Infrastructure",
+      "order": 11,
+      "videos": [
+        {
+          "title": "Tax 101",
+          "loomId": "19766647a97541b6ad4e73d8705fc623",
+          "loomEmbedUrl": "https://www.loom.com/embed/19766647a97541b6ad4e73d8705fc623",
+          "order": 1,
+          "mdId": "b7c284ca14d640a38c4a59fb68ceba86"
+        },
+        {
+          "title": "Crypto Taxes Overview",
+          "loomId": "e1c0a6e5263040238d91344cb1cdb9af",
+          "loomEmbedUrl": "https://www.loom.com/embed/e1c0a6e5263040238d91344cb1cdb9af",
+          "order": 2,
+          "mdId": "89ccb863adf04813b1d4fe89333b5f9d"
+        },
+        {
+          "title": "Offshore Examples",
+          "loomId": "9825dc5a4ae844298a0ef223196921d3",
+          "loomEmbedUrl": "https://www.loom.com/embed/9825dc5a4ae844298a0ef223196921d3",
+          "order": 3,
+          "mdId": "b669f8bbb15f4abe81127d73d0f80676"
+        },
+        {
+          "title": "My Personal Setup to Pay Zero Capital Gains",
+          "loomId": null,
+          "loomEmbedUrl": null,
+          "order": 4,
+          "mdId": "400d7a4476324f4f8d9e5c472b9d6117"
+        },
+        {
+          "title": "GIFT - Free Tax/Banking Consult from my Advisor",
+          "loomId": "2d2696d898c3402391a1227114b713fb",
+          "loomEmbedUrl": "https://www.loom.com/embed/2d2696d898c3402391a1227114b713fb",
+          "order": 5,
+          "mdId": "ba32416cbb1249dfa5a709a432b955ed"
+        }
+      ]
+    },
+    {
+      "name": "Putting Everything Together (Coming Soon)",
+      "order": 12,
+      "videos": []
+    },
+    {
+      "name": "Best Online Income Sources To Get $$ For Crypto",
+      "order": 13,
+      "videos": [
+        {
+          "title": "High Ticket Sales - Easiest Way to Make 10k/month",
+          "loomId": "86b24cb7d70543c7bc4d76d361c23ac6",
+          "loomEmbedUrl": "https://www.loom.com/embed/86b24cb7d70543c7bc4d76d361c23ac6",
+          "order": 1,
+          "mdId": "3f68d8d1d1d5490888aa61960eb6d394"
+        }
+      ]
+    }
+  ]
+}
