@@ -11,5 +11,12 @@ COPY output/ output/
 # Create data directory
 RUN mkdir -p scripts/data output/reports
 
-# Default: run the scanner once
-CMD ["node", "scripts/scan.mjs"]
+# Install cron
+RUN apk add --no-cache dcron
+
+# Create the scan script that loads env vars
+# (crond doesn't inherit container env vars, so we dump them at build/start)
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+CMD ["/app/entrypoint.sh"]
