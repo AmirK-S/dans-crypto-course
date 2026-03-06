@@ -10,8 +10,8 @@ function getConfig() {
 
 /**
  * Send scan report to Telegram.
- * Uses an LLM to write a plain-language summary that a non-expert can understand.
- * Only sends detailed alerts when something actually matters.
+ * Message 1: Plain-language summary (for Amir)
+ * Message 2: Copy-paste block for Claude (only when score >= 30)
  */
 export async function sendTelegramReport(results, score) {
   const { token, chatId, openRouterKey } = getConfig();
@@ -20,19 +20,25 @@ export async function sendTelegramReport(results, score) {
     return false;
   }
 
-  let message;
-
+  // Message 1: Human-friendly summary
+  let summary;
   if (openRouterKey) {
-    message = await generateSmartSummary(results, score, openRouterKey);
+    summary = await generateSmartSummary(results, score, openRouterKey);
   } else {
-    message = buildFallbackMessage(results, score);
+    summary = buildFallbackMessage(results, score);
   }
 
-  // Split if too long (Telegram 4096 char limit)
-  const chunks = splitMessage(message, 4000);
+  const chunks = splitMessage(summary, 4000);
   for (const chunk of chunks) {
     await sendMessage(token, chatId, chunk);
     await new Promise((r) => setTimeout(r, 300));
+  }
+
+  // Message 2: Copy-paste block for Claude (separate message, easy to copy)
+  if (score.total >= 30) {
+    const claudeBlock = buildClaudeBlock(results, score);
+    await new Promise((r) => setTimeout(r, 500));
+    await sendMessage(token, chatId, claudeBlock);
   }
 
   return true;
@@ -53,6 +59,104 @@ async function sendMessage(token, chatId, text) {
     const err = await res.text().catch(() => '');
     throw new Error(`Telegram ${res.status}: ${err.slice(0, 200)}`);
   }
+}
+
+/**
+ * Build the copy-paste message for Claude.
+ * This is a SEPARATE Telegram message so Amir can just tap-and-copy the whole thing.
+ * Contains all raw data + course context so Claude has full context.
+ */
+function buildClaudeBlock(results, score) {
+  const lines = [];
+
+  lines.push(`📋 Copie ce message et colle-le à Claude:`);
+  lines.push(``);
+  lines.push(`---`);
+  lines.push(``);
+  lines.push(`Mon scanner crypto (basé sur la formation de Dan) vient de tourner. Voici les données du jour. Analyse-les et dis-moi concrètement si je devrais agir ou pas. Je suis débutant avec moins de 2000$ à investir.`);
+  lines.push(``);
+  lines.push(`Score du jour: ${score.total}/100`);
+  lines.push(`BTC 24h: ${results.outliers?.btcChange24h?.toFixed(1) ?? '?'}% | 7j: ${results.outliers?.btcChange7d?.toFixed(1) ?? '?'}%`);
+  lines.push(``);
+
+  // Outliers
+  if (results.outliers?.active) {
+    lines.push(`SIGNAL — Outliers (coins qui tiennent pendant que BTC chute):`);
+    for (const o of results.outliers.outliers.slice(0, 5)) {
+      lines.push(`  ${o.symbol} (${o.name}): ${o.change > 0 ? '+' : ''}${o.change.toFixed(1)}% vs BTC ${o.btcDrop.toFixed(1)}% | MCap $${fmtNum(o.marketCap)}`);
+    }
+    lines.push(``);
+  }
+
+  // Funding
+  const fs = results.funding?.summary;
+  if (fs && (fs.extremeCount > 0 || fs.highCount > 0)) {
+    lines.push(`SIGNAL — Funding négatif (traders parient massivement à la baisse):`);
+    lines.push(`  Marché: avg ${fs.avgMarketFunding.toFixed(4)}% | ${fs.negativeFunding}/${fs.totalPairs} paires négatives`);
+    lines.push(`  Extrême: ${fs.extremeCount} | Élevé: ${fs.highCount} | Modéré: ${fs.moderateCount}`);
+    for (const s of (results.funding?.signals ?? []).slice(0, 8)) {
+      lines.push(`  ${s.symbol}: ${s.avgRate.toFixed(4)}% [${s.severity}]${s.crossConfirmed ? ' ✓ multi-exchange' : ''} | Binance: ${fmtRate(s.binance)} | Bybit: ${fmtRate(s.bybit)}`);
+    }
+    lines.push(``);
+  }
+
+  // Capitulation
+  if (results.capitulation?.active) {
+    lines.push(`SIGNAL — Capitulation détectée (${results.capitulation.severity}):`);
+    for (const s of results.capitulation.signals) {
+      lines.push(`  ${s.name}: ${s.detail}`);
+    }
+    lines.push(``);
+  }
+
+  // New listings
+  const nl = results.newListings;
+  if (nl && !nl.isFirstRun && nl.totalNew > 0) {
+    lines.push(`SIGNAL — Nouveaux listings (${nl.totalNew}):`);
+    if (nl.crossListed?.length) lines.push(`  Cross-listé: ${nl.crossListed.join(', ')}`);
+    if (nl.newOnMexc?.length) lines.push(`  MEXC: ${nl.newOnMexc.slice(0, 8).join(', ')}`);
+    if (nl.newOnKucoin?.length) lines.push(`  KuCoin: ${nl.newOnKucoin.slice(0, 8).join(', ')}`);
+    lines.push(``);
+  }
+
+  // Retracements
+  const rets = (results.retracements ?? []).filter(r => r.status === 'IN_ZONE');
+  if (rets.length) {
+    lines.push(`SIGNAL — Coins en zone d'achat (pullback depuis ATH):`);
+    for (const r of rets.slice(0, 8)) {
+      lines.push(`  ${r.symbol}: $${r.price} | ATH $${r.ath} | -${r.drawdown}% | ${r.category} (zone: ${r.buyZone.min}-${r.buyZone.max}%)`);
+    }
+    lines.push(``);
+  }
+
+  // Dump gainers
+  if (results.dumpGainers?.active && results.dumpGainers.gainers?.length) {
+    lines.push(`SIGNAL — Coins verts pendant le dump:`);
+    for (const g of results.dumpGainers.gainers.slice(0, 5)) {
+      lines.push(`  ${g.symbol}: +${g.change24h.toFixed(1)}% | MCap $${fmtNum(g.marketCap)}`);
+    }
+    lines.push(``);
+  }
+
+  // Bear market
+  if (results.bearMarket?.active) {
+    lines.push(`ALERTE — Bear market: BTC à $${fmtNum(results.bearMarket.btcPrice)} | -${results.bearMarket.drawdownPercent}% depuis ATH | Sévérité: ${results.bearMarket.severity}`);
+    lines.push(``);
+  }
+
+  // Portfolio
+  if (results.portfolio?.totalPositions) {
+    lines.push(`Portfolio: ${results.portfolio.totalPositions}/${results.portfolio.maxPositions} positions | Valeur: $${results.portfolio.totalValue} | P&L: $${results.portfolio.totalPnl} (${results.portfolio.totalPnlPercent}%)`);
+  } else {
+    lines.push(`Portfolio: vide, 7 slots disponibles.`);
+  }
+
+  lines.push(``);
+  lines.push(`Principes de Dan à appliquer: focus sub-100M market cap, max 7 positions, chercher les coins qui résistent quand BTC chute, funding négatif = zone d'achat historique, capitulation (3+ signaux) = meilleur moment pour acheter.`);
+  lines.push(``);
+  lines.push(`Dis-moi quoi faire concrètement.`);
+
+  return lines.join('\n');
 }
 
 /** Use LLM to write a human-friendly summary */
@@ -78,10 +182,10 @@ WHAT TO SAY:
 
 3. <b>Verdict</b> — the MOST IMPORTANT part. Must match the score:
    - Score <30: "⚪ Rien à faire aujourd'hui. On surveille."
-   - Score 30-49: "🟡 Quelques trucs à surveiller mais pas de quoi agir. Si t'es curieux, demande à Claude d'analyser [coins]."
-   - Score 50-69: "🟢 Ça bouge. Va voir Claude et demande-lui de creuser [coins] avant de faire quoi que ce soit."
-   - Score 70+: "🔥 Journée importante. Plusieurs signaux alignés sur [coins]. Parle à Claude AVANT d'agir."
-   - Bear market/capitulation: "🐻 ALERTE: [explanation]. Parle à Claude immédiatement."
+   - Score 30-49: "🟡 Quelques trucs à surveiller mais pas de quoi agir. Le message suivant contient les détails — copie-le à Claude si tu veux creuser."
+   - Score 50-69: "🟢 Ça bouge. Copie le message suivant et envoie-le à Claude pour qu'il t'analyse tout ça."
+   - Score 70+: "🔥 Journée importante. Copie le message suivant et envoie-le à Claude MAINTENANT."
+   - Bear market/capitulation: "🐻 ALERTE. Copie le message suivant et parle à Claude immédiatement."
 
 RULES:
 - Write in FRENCH
@@ -95,6 +199,7 @@ RULES:
 - Keep under 1500 characters
 - Use Telegram HTML: <b>bold</b>, <i>italic</i>
 - Header: "📊 <b>DanScan</b> — [Jour, Mois Jour]"
+- IMPORTANT: Do NOT include a copy-paste block or raw data. A separate message handles that.
 
 Here's today's raw data:
 ${dataSnapshot}`;
@@ -135,7 +240,6 @@ function buildDataSnapshot(results, score) {
   lines.push(`Score: ${score.total}/100 — ${score.interpretation}`);
   lines.push(`BTC 24h: ${results.outliers?.btcChange24h?.toFixed(1) ?? '?'}%, 7d: ${results.outliers?.btcChange7d?.toFixed(1) ?? '?'}%`);
 
-  // Outliers
   if (results.outliers?.active) {
     lines.push(`OUTLIER SIGNAL ACTIVE: BTC dumping but these coins held up:`);
     for (const o of results.outliers.outliers.slice(0, 5)) {
@@ -143,62 +247,40 @@ function buildDataSnapshot(results, score) {
     }
   }
 
-  // Funding
   const fs = results.funding?.summary;
   if (fs) {
-    lines.push(`Funding: ${fs.extremeCount} coins with extreme negative funding (traders heavily shorting them), ${fs.highCount} high`);
-    const top = (results.funding?.signals ?? []).slice(0, 5);
-    if (top.length) {
-      lines.push(`Top negative funding (potential bounce candidates):`);
-      for (const s of top) {
-        lines.push(`  ${s.symbol}: avg ${s.avgRate.toFixed(4)}%${s.crossConfirmed ? ' (confirmed on multiple exchanges)' : ''}`);
-      }
+    lines.push(`Funding: ${fs.extremeCount} extreme, ${fs.highCount} high`);
+    for (const s of (results.funding?.signals ?? []).slice(0, 5)) {
+      lines.push(`  ${s.symbol}: avg ${s.avgRate.toFixed(4)}%${s.crossConfirmed ? ' (confirmed multi-exchange)' : ''}`);
     }
   }
 
-  // Capitulation
   if (results.capitulation?.active) {
-    lines.push(`CAPITULATION DETECTED (${results.capitulation.severity}): ${results.capitulation.signalCount} of ${results.capitulation.requiredSignals} panic signals firing — historically a great buy zone`);
+    lines.push(`CAPITULATION (${results.capitulation.severity}): ${results.capitulation.signalCount}/${results.capitulation.requiredSignals} signals`);
   }
 
-  // New listings
   const nl = results.newListings;
   if (nl && !nl.isFirstRun && nl.totalNew > 0) {
-    lines.push(`${nl.totalNew} new coins just listed on exchanges: ${[...(nl.newOnMexc ?? []), ...(nl.newOnKucoin ?? [])].slice(0, 5).join(', ')}`);
+    lines.push(`${nl.totalNew} new listings: ${[...(nl.newOnMexc ?? []), ...(nl.newOnKucoin ?? [])].slice(0, 5).join(', ')}`);
   }
 
-  // Retracements
   const microRets = (results.retracements ?? []).filter(r => r.status === 'IN_ZONE' && r.category === 'Micro Cap');
   if (microRets.length) {
-    lines.push(`${microRets.length} small-cap coins in potential buy zones (pulled back significantly from their highs):`);
+    lines.push(`${microRets.length} micro-caps in buy zones:`);
     for (const r of microRets.slice(0, 5)) {
-      lines.push(`  ${r.symbol}: down ${r.drawdown}% from all-time high of $${r.ath}`);
+      lines.push(`  ${r.symbol}: down ${r.drawdown}% from ATH $${r.ath}`);
     }
   }
 
-  // Dump gainers
   if (results.dumpGainers?.active) {
-    lines.push(`Market is down but these coins are GREEN (sign of accumulation):`);
+    lines.push(`Dump gainers (green during selloff):`);
     for (const g of (results.dumpGainers.gainers ?? []).slice(0, 5)) {
-      lines.push(`  ${g.symbol}: +${g.change24h.toFixed(1)}%, market cap $${fmtNum(g.marketCap)}`);
+      lines.push(`  ${g.symbol}: +${g.change24h.toFixed(1)}%, mcap $${fmtNum(g.marketCap)}`);
     }
   }
 
-  // Portfolio
-  if (results.portfolio?.totalPositions) {
-    lines.push(`Portfolio: ${results.portfolio.totalPositions} positions, total P&L: ${results.portfolio.totalPnl >= 0 ? '+' : ''}$${results.portfolio.totalPnl}`);
-  } else {
-    lines.push(`Portfolio: empty, 7 slots available`);
-  }
-
-  // Bear market
   if (results.bearMarket?.active) {
-    lines.push(`BEAR MARKET SIGNAL: BTC down ${results.bearMarket.drawdownPercent}% from all-time high — in the danger zone`);
-  }
-
-  // Exit alerts
-  if (results.exitAlerts?.length) {
-    for (const a of results.exitAlerts) lines.push(`EXIT ALERT: ${a.message}`);
+    lines.push(`BEAR MARKET: BTC -${results.bearMarket.drawdownPercent}% from ATH`);
   }
 
   return lines.join('\n');
@@ -206,28 +288,26 @@ function buildDataSnapshot(results, score) {
 
 /** Fallback if LLM is unavailable */
 function buildFallbackMessage(results, score) {
-  const date = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  const date = new Date().toLocaleDateString('fr-FR', { weekday: 'short', month: 'short', day: 'numeric' });
   const emoji = score.total >= 60 ? '🟢' : score.total >= 40 ? '🟡' : '⚪';
 
   let msg = `📊 <b>DanScan — ${date}</b>\n\n`;
   msg += `${emoji} Score: ${score.total}/100\n`;
 
   if (score.total < 30) {
-    msg += `\nQuiet day. Nothing to act on. Check back tomorrow.`;
+    msg += `\nRien à faire aujourd'hui. On surveille.`;
   } else if (score.total < 60) {
-    msg += `\nSome signals showing up — might be worth a look.`;
-    const fs = results.funding?.summary;
-    if (fs?.extremeCount) msg += `\n${fs.extremeCount} coins with heavy short interest (potential bounce).`;
+    msg += `\nQuelques signaux. Copie le message suivant et envoie-le à Claude si tu veux creuser.`;
   } else {
-    msg += `\n<b>Notable day!</b> Multiple signals firing.`;
+    msg += `\n<b>Journée notable!</b> Copie le message suivant et parle à Claude.`;
   }
 
   if (results.bearMarket?.active) {
-    msg += `\n\n🐻 <b>Bear market warning</b> — BTC down ${results.bearMarket.drawdownPercent}% from ATH.`;
+    msg += `\n\n🐻 <b>Alerte bear market</b> — BTC -${results.bearMarket.drawdownPercent}% depuis ATH.`;
   }
 
   if (results.capitulation?.active) {
-    msg += `\n\n🚨 <b>Capitulation detected</b> — historically a great time to buy.`;
+    msg += `\n\n🚨 <b>Capitulation détectée</b> — historiquement le meilleur moment pour acheter.`;
   }
 
   return msg;
@@ -255,4 +335,8 @@ function fmtNum(n) {
   if (n >= 1e6) return `${(n / 1e6).toFixed(1)}M`;
   if (n >= 1e3) return `${(n / 1e3).toFixed(1)}K`;
   return n?.toFixed(2) ?? '0';
+}
+
+function fmtRate(v) {
+  return v !== null && v !== undefined ? `${v.toFixed(4)}%` : 'N/A';
 }
