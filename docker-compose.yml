@@ -1,0 +1,15 @@
+services:
+  danscan:
+    build: .
+    environment:
+      - COINGECKO_API_KEY=${COINGECKO_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+    volumes:
+      - scan-data:/app/scripts/data
+      - scan-reports:/app/output/reports
+    restart: "no"
+
+volumes:
+  scan-data:
+  scan-reports:

@@ -5,3 +5,5 @@ output/.DS_Store
 output/transcripts/.DS_Store
 BatteryOptimizer_for_Mac-main/
 batteryoptimizer.zip
+scripts/data/scan-history.json
+scripts/data/exchange-symbols.json
