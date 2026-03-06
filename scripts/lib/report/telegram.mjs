@@ -241,6 +241,8 @@ ${dataSnapshot}`;
 /** Build a compact data snapshot for the LLM */
 function buildDataSnapshot(results, score) {
   const lines = [];
+  const now = new Date();
+  lines.push(`Date: ${now.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`);
   lines.push(`Score: ${score.total}/100 — ${score.interpretation}`);
   lines.push(`BTC 24h: ${results.outliers?.btcChange24h?.toFixed(1) ?? '?'}%, 7d: ${results.outliers?.btcChange7d?.toFixed(1) ?? '?'}%`);
 
