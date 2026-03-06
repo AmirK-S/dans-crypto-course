@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 function getConfig() {
   return {
     token: process.env.TELEGRAM_BOT_TOKEN,
-    chatId: process.env.TELEGRAM_CHAT_ID,
+    chatIds: (process.env.TELEGRAM_CHAT_ID || '').split(',').map(s => s.trim()).filter(Boolean),
     openRouterKey: process.env.OPENROUTER_API_KEY,
   };
 }
@@ -14,8 +14,8 @@ function getConfig() {
  * Message 2: Copy-paste block for Claude (only when score >= 30)
  */
 export async function sendTelegramReport(results, score) {
-  const { token, chatId, openRouterKey } = getConfig();
-  if (!token || !chatId) {
+  const { token, chatIds, openRouterKey } = getConfig();
+  if (!token || !chatIds.length) {
     console.log('  ⚠ Telegram not configured (missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID)');
     return false;
   }
@@ -28,19 +28,23 @@ export async function sendTelegramReport(results, score) {
     summary = buildFallbackMessage(results, score);
   }
 
-  const chunks = splitMessage(summary, 4000);
-  for (const chunk of chunks) {
-    await sendMessage(token, chatId, chunk);
-    await new Promise((r) => setTimeout(r, 300));
-  }
-
   // Message 2: Copy-paste block for Claude (separate message, easy to copy)
-  if (score.total >= 30) {
-    const claudeBlock = buildClaudeBlock(results, score);
-    await new Promise((r) => setTimeout(r, 500));
-    await sendMessage(token, chatId, claudeBlock);
+  const claudeBlock = score.total >= 30 ? buildClaudeBlock(results, score) : null;
+
+  // Send to all recipients
+  for (const chatId of chatIds) {
+    const chunks = splitMessage(summary, 4000);
+    for (const chunk of chunks) {
+      await sendMessage(token, chatId, chunk);
+      await new Promise((r) => setTimeout(r, 300));
+    }
+    if (claudeBlock) {
+      await new Promise((r) => setTimeout(r, 500));
+      await sendMessage(token, chatId, claudeBlock);
+    }
   }
 
+  console.log(`  ✓ Telegram sent to ${chatIds.length} recipient(s)`);
   return true;
 }
 
