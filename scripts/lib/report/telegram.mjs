@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import { formatTrendsForLLM, formatTrendsForClaude } from '../signals/trend-analyzer.mjs';
 
 function getConfig() {
   return {
@@ -155,10 +156,17 @@ function buildClaudeBlock(results, score) {
     lines.push(`Portfolio: vide, 7 slots disponibles.`);
   }
 
+  // Multi-day trends
+  const trendBlock = results.trends?.hasTrends ? formatTrendsForClaude(results.trends) : null;
+  if (trendBlock) {
+    lines.push(``);
+    lines.push(trendBlock);
+  }
+
   lines.push(``);
   lines.push(`Principes de Dan à appliquer: focus sub-100M market cap, max 7 positions, chercher les coins qui résistent quand BTC chute, funding négatif = zone d'achat historique, capitulation (3+ signaux) = meilleur moment pour acheter.`);
   lines.push(``);
-  lines.push(`Dis-moi quoi faire concrètement.`);
+  lines.push(`Dis-moi quoi faire concrètement. Si des tendances multi-jours sont présentes, prends-les en compte dans ton analyse (un signal persistant est plus fiable qu'un signal ponctuel).`);
 
   return lines.join('\n');
 }
@@ -201,6 +209,7 @@ RULES:
 - Don't explain what DanScan is or how it works
 - Quiet days = 4-5 lines max. Don't invent excitement.
 - Keep under 1500 characters
+- If HISTORIQUE / TENDANCES data is present, mention notable patterns like "ça fait 3 jours que les traders parient contre X" or "le score monte depuis 3 jours". Don't list everything — just the 1-2 most interesting patterns.
 - Use Telegram HTML: <b>bold</b>, <i>italic</i>
 - Header: "📊 <b>DanScan</b> — [Jour, Mois Jour]"
 - IMPORTANT: Do NOT include a copy-paste block or raw data. A separate message handles that.
@@ -287,6 +296,13 @@ function buildDataSnapshot(results, score) {
 
   if (results.bearMarket?.active) {
     lines.push(`BEAR MARKET: BTC -${results.bearMarket.drawdownPercent}% from ATH`);
+  }
+
+  // Multi-day trends
+  if (results.trends?.hasTrends) {
+    lines.push('');
+    lines.push('HISTORIQUE / TENDANCES:');
+    lines.push(formatTrendsForLLM(results.trends));
   }
 
   return lines.join('\n');

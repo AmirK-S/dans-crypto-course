@@ -47,6 +47,7 @@ import { detectNewListings } from './lib/signals/new-listings.mjs';
 import { detectCapitulation } from './lib/signals/capitulation.mjs';
 import { scanRetracements } from './lib/signals/retracement.mjs';
 import { findDumpGainers } from './lib/signals/dump-gainers.mjs';
+import { analyzeTrends } from './lib/signals/trend-analyzer.mjs';
 
 // Watchdog
 import { loadPortfolio, savePortfolio, updatePositions, getPortfolioSummary } from './lib/watchdog/portfolio.mjs';
@@ -187,6 +188,11 @@ async function main() {
 
   const score = computeScore(results);
 
+  // Trend analysis (multi-day memory)
+  const pastHistory = safeReadJSON(CACHE_FILE, { scans: [] }).scans || [];
+  const trends = analyzeTrends(results, score, pastHistory);
+  results.trends = trends;
+
   // Output
   console.log(formatReport(results, score));
 
@@ -202,7 +208,7 @@ async function main() {
     console.log(`  ⚠ Telegram: ${err.message}`);
   }
 
-  // Save scan history
+  // Save enriched scan history
   try {
     const history = safeReadJSON(CACHE_FILE, { scans: [], lastScan: null });
     history.scans.push({
@@ -211,8 +217,17 @@ async function main() {
       outlierActive: outliers.active,
       capitulationActive: capitulation.active,
       bearActive: bearMarket.active,
+      btcPrice: btcData?.current_price,
+      btcChange24h: outliers.btcChange24h,
+      btcChange7d: outliers.btcChange7d,
+      // Top coins per signal (symbols only, keeps history small)
+      fundingCoins: (funding.signals || []).slice(0, 15).map(s => s.symbol),
+      outlierCoins: (outliers.outliers || []).slice(0, 10).map(s => s.symbol),
+      dumpGainerCoins: (dumpGainers.gainers || []).slice(0, 10).map(s => s.symbol),
+      newListingsCount: newListings.isFirstRun ? undefined : (newListings.totalNew || 0),
+      newListingCoins: [...(newListings.newOnMexc || []), ...(newListings.newOnKucoin || [])].slice(0, 10),
     });
-    // Keep last 90 days
+    // Keep last 90 entries
     if (history.scans.length > 90) history.scans = history.scans.slice(-90);
     history.lastScan = new Date().toISOString();
     writeFileSync(CACHE_FILE, JSON.stringify(history, null, 2));
